@@ -8,7 +8,7 @@ import Geolocation from 'react-native-geolocation-service';
 import NetInfo from "@react-native-community/netinfo";
 
 
-const Home = () => {
+const Home = ({ navigation }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredData, setFilteredData] = useState([]);
     const [imageUri, setImageUri] = useState('');
@@ -158,7 +158,9 @@ const Home = () => {
                             Due to connectivity issue
                         </Text>
                     </View>
-                    <TouchableOpacity style={{
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate("Pdfreader")
+                    }} style={{
                         width: WIDTH * 0.9,
                         height: HEIGHT * 0.1,
                         backgroundColor: 'lightgrey',
